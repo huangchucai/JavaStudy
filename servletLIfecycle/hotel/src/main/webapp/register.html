@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册</title>
+</head>
+<body>
+<h1>请输入用户信息注册</h1>
+<form action="/hotel/cookie/register" method="post">
+  <input type="text" name="userName" placeholder="用户名">
+  <input type="text" name="passWord" placeholder="密码">
+  <input type="submit" value="注册">
+</form>
+
+<h1>修改密码</h1>
+<form action="/hotel/cookie/changePassword" method="post">
+  <input type="text" name="userName" placeholder="用户名">
+  <input type="text" name="oldPassword" placeholder="旧密码">
+  <input type="text" name="newPassword" placeholder="新密码">
+  <input type="submit" value="修改">
+</form>
+</body>
+</html>

@@ -9,4 +9,19 @@
     select * from student where id = #{id}
   </select>
 
+  <select id="selectAccountList" resultType="com.hcc.mybatis.Account">
+    select * from student where money > #{money}
+  </select>
+
+  <insert id="insertAccount">
+    insert into student (name, money) values (#{name}, #{money})
+  </insert>
+
+  <update id="updateAccount">
+    update student set money = #{money} where id = #{id}
+  </update>
+
+  <delete id="deleteAccount">
+    delete from student where id = #{id}
+  </delete>
 </mapper>

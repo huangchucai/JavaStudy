@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class LearnMybatisService {
     public static void main(String[] args) throws IOException {
@@ -21,6 +22,30 @@ public class LearnMybatisService {
         // 执行sql
         Account account = session.selectOne("AccountMapper.selectAccount", 2);
         System.out.println(account);
+
+        List<Account> accountList = session.selectList("AccountMapper.selectAccountList", 5);
+        System.out.println(accountList);
+
+        // 插入数据
+        Account insertAccount = new Account();
+        insertAccount.setName("Mary");
+        insertAccount.setMoney(6000);
+        int countInsert = session.insert("AccountMapper.insertAccount", insertAccount);
+        System.out.println("插入数据的条数：" + countInsert);
+
+        // 更新数据
+        Account updateAccount = new Account();
+        updateAccount.setId(2);
+        updateAccount.setMoney(8888);
+        int countUpdate = session.update("AccountMapper.updateAccount", updateAccount);
+        System.out.println("更新数据的条数：" + countUpdate);
+
+        // 删除数据
+        int countDelete = session.delete("AccountMapper.deleteAccount", 23);
+        System.out.println("删除数据的条数：" + countDelete);
+
+        // 提交事务
+        session.commit();
         // 释放资源
         session.close();
     }

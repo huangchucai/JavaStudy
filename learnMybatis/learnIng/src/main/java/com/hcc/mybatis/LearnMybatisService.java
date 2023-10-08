@@ -1,5 +1,6 @@
 package com.hcc.mybatis;
 
+import com.hcc.mybatis.mapper.AccountMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,8 +18,19 @@ public class LearnMybatisService {
         // 获取sqlSessionFactory 对象
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
+
         // 获取sqlSession对象  用户执行sql
         SqlSession session = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = session.getMapper(AccountMapper.class);
+
+        // 执行sql
+        Account account = accountMapper.selectAccount(4);
+        System.out.println(account);
+
+        List<Account> accountList = accountMapper.selectAccountList(500);
+        System.out.println(accountList);
+
+       /*
         // 执行sql
         Account account = session.selectOne("AccountMapper.selectAccount", 2);
         System.out.println(account);
@@ -42,7 +54,7 @@ public class LearnMybatisService {
 
         // 删除数据
         int countDelete = session.delete("AccountMapper.deleteAccount", 23);
-        System.out.println("删除数据的条数：" + countDelete);
+        System.out.println("删除数据的条数：" + countDelete);*/
 
         // 提交事务
         session.commit();

@@ -21,7 +21,43 @@
       <artifactId>mysql-connector-j</artifactId>
       <version>8.1.0</version>
     </dependency>
-
   </dependencies>
 
+  <profiles>
+    <profile>
+      <id>prod</id>
+      <properties>
+        <profile.name>prod</profile.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>dev</id>
+      <properties>
+        <profile.name>dev</profile.name>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
+
+  <build>
+    <resources>
+      <resource>
+<!--        根据不同的环境，把对应文件夹里的配置文件打包  -->
+<!--        当 环境 = dev 时候，变量profile.name = dev  会对src/main/resources/profiles/dev 目录下的文件进行打包 -->
+        <directory>src/main/resources/profiles/${profile.name}</directory>
+      </resource>
+
+      <resource>
+<!--        对src/main/resources/ 目录下配置文件打包 -->
+        <directory>src/main/resources</directory>
+        <excludes>
+<!--          排除profiles 目录下的配置文件，因为在上一个resource中已经选择了  -->
+          <exclude>profiles/**</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
 </project>

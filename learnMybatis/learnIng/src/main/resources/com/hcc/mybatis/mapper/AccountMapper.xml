@@ -5,11 +5,11 @@
 
 <mapper namespace="com.hcc.mybatis.mapper.AccountMapper">
 
-  <select id="selectAccount" resultType="com.hcc.mybatis.Account">
+  <select id="selectAccount" resultType="Account">
     select * from student where id = #{id}
   </select>
 
-  <select id="selectAccountList" resultType="com.hcc.mybatis.Account">
+  <select id="selectAccountList" resultType="Account">
     select * from student where money > #{money}
   </select>
 

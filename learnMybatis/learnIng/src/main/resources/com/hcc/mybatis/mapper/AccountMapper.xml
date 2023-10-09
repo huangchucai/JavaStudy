@@ -13,12 +13,24 @@
     select * from student where money > #{money}
   </select>
 
+  <select id="selectAccountListByAll" resultType="Account">
+    select * from student order by ${orderBy} desc
+  </select>
+
   <insert id="insertAccount">
+    insert into student (name, money) values (#{account.name}, #{account.money})
+  </insert>
+
+  <insert id="insertAccountByMap">
+    insert into student (name, money) values (#{map.name}, #{map.money})
+  </insert>
+
+  <insert id="insertAccountByParams">
     insert into student (name, money) values (#{name}, #{money})
   </insert>
 
   <update id="updateAccount">
-    update student set money = #{money} where id = #{id}
+    update student set money = #{account.money} where id = #{account.id}
   </update>
 
   <delete id="deleteAccount">

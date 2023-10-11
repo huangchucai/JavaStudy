@@ -1,4 +1,4 @@
-package com.hcc.mybatis;
+package com.hcc.mybatis.pojo;
 
 public class Account {
     private Integer id;

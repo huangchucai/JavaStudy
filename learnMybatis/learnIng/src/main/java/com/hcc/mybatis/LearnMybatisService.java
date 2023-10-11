@@ -1,6 +1,7 @@
 package com.hcc.mybatis;
 
 import com.hcc.mybatis.mapper.AccountMapper;
+import com.hcc.mybatis.pojo.Account;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

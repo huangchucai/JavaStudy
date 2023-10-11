@@ -1,6 +1,6 @@
 package com.hcc.mybatis.mapper;
 
-import com.hcc.mybatis.Account;
+import com.hcc.mybatis.pojo.Account;
 import com.hcc.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package com.hcc.mybatis.mapper;
 
-import com.hcc.mybatis.Account;
+import com.hcc.mybatis.pojo.Account;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.HashMap;

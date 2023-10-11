@@ -3,18 +3,34 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="com.hcc.mybatis.mapper.AccountMapper">
 
+  <resultMap id="accountResultMap" type="account">
+    <id property="id" column="id" />
+    <result property="name" column="name" />
+    <result property="money" column="money" />
+    <result property="age" column="use_age" />
+  </resultMap>
+
   <select id="selectAccount" resultType="Account">
-    select * from student where id = #{id}
+    select id, name, money, use_age as useAge from student where id = #{id}
   </select>
 
-  <select id="selectAccountList" resultType="Account">
+  <select id="selectAccountList" resultMap="accountResultMap">
     select * from student where money > #{money}
   </select>
 
-  <select id="selectAccountListByAll" resultType="Account">
+  <select id="selectAccountListByAll" resultMap="accountResultMap">
     select * from student order by ${orderBy} desc
+  </select>
+
+  <select id="selectAccountByName" resultMap="accountResultMap">
+    select * from student where name = #{name}
+  </select>
+
+  <select id="countAll" resultType="Integer">
+    select count(*) from student
   </select>
 
   <insert id="insertAccount">

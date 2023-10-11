@@ -7,6 +7,9 @@ public class Account {
 
     private Integer money;
 
+    private Integer age;
+
+
     public Integer getId() {
         return id;
     }
@@ -31,12 +34,22 @@ public class Account {
         this.money = money;
     }
 
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", money=" + money +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", money=" + money +
+            ", age=" + age +
+            '}';
     }
 }

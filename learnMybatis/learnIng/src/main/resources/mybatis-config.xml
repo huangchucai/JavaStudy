@@ -6,6 +6,10 @@
 <configuration>
   <properties resource="jdbc.properties"/>
 
+<!--  <settings>-->
+<!--    <setting name="mapUnderscoreToCamelCase" value="true"/>-->
+<!--  </settings>-->
+
   <typeAliases>
     <package name="com.hcc.mybatis"/>
 <!--    <typeAlias type="com.hcc.mybatis.Account" alias="Account"/>-->

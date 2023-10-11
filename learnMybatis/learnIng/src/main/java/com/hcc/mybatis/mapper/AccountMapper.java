@@ -12,7 +12,11 @@ public interface AccountMapper {
 
   List<Account> selectAccountList(@Param("money") int money);
 
+  List<Account> selectAccountByName(@Param("name") String name);
+
   List<Account> selectAccountListByAll (@Param("orderBy") String orderBy);
+
+  int countAll();
 
   int insertAccount(@Param("account") Account account);
 
@@ -23,4 +27,5 @@ public interface AccountMapper {
   int updateAccount(@Param("account") Account account);
 
   int deleteAccount(@Param("id") int id);
+
 }

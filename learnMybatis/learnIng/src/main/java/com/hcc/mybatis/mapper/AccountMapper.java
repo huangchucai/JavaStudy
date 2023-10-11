@@ -16,9 +16,19 @@ public interface AccountMapper {
 
   List<Account> selectAccountListByAll (@Param("orderBy") String orderBy);
 
+
+  List<Account> selectActiveAccountByAll(@Param("account") Account account);
+
+  List<Account> selectActiveAccountDefaultMoney(@Param("account") Account account, @Param("offset") Integer offset , @Param("limit") Integer limit);
+
+  Integer countActiveAccountDefaultMoney(@Param("account") Account account);
+  List<Account> selectAccountByIds(@Param("ids") List ids);
+
   int countAll();
 
   int insertAccount(@Param("account") Account account);
+
+  int insertSelective(@Param("account") Account account);
 
   int insertAccountByMap(@Param("map") HashMap<String, Object> map);
 

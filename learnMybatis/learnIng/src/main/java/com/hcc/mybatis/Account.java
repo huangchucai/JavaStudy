@@ -9,6 +9,26 @@ public class Account {
 
     private Integer age;
 
+    private Integer status;
+
+    private Integer gender;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
 
     public Integer getId() {
         return id;
@@ -50,6 +70,8 @@ public class Account {
             ", name='" + name + '\'' +
             ", money=" + money +
             ", age=" + age +
+            ", status=" + status +
+            ", gender=" + gender +
             '}';
     }
 }

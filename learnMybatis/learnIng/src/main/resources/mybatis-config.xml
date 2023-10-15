@@ -29,10 +29,10 @@
 
   <mappers>
 <!--    使用这个方式， 要求mapper.xml 和 mapper接口类所在的目录完全相同  -->
-<!--    <package name="com.hcc.mybatis.mapper"/>-->
+    <package name="com.hcc.mybatis.mapper"/>
 
 <!--    <mapper class="com.hcc.mybatis.mapper.AccountMapper"/>-->
-    <mapper resource="com/hcc/mybatis/mapper/AccountMapper.xml"/>
+<!--    <mapper resource="com/hcc/mybatis/mapper/AccountMapper.xml"/>-->
   </mappers>
 
 </configuration>

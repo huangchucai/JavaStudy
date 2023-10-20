@@ -12,22 +12,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "balanceInquiryServlet", urlPatterns = "/balanceInquiry")
-public class BalanceInquiryServlet extends HttpServlet {
+@WebServlet(name = "saveMoneyServlet", urlPatterns = "/saveMoney")
+public class SaveMoneyServlet extends HttpServlet {
 
-//  private IBankService bankService = MyApplicationContext.getBean(IBankService.class);
   private IBankService bankService = new BankService();
 
   @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//    System.out.println(bankService);
+  public void doGet(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException
+  {
+    System.out.println(bankService);
     int id = Integer.parseInt(req.getParameter("id"));
-    BankOperationResult bankOperationResult = bankService.balanceInquiry(id);
+    int money = Integer.parseInt(req.getParameter("money"));
+    BankOperationResult bankOperationResult = bankService.saveMoney(id, money);
     String message;
     if (bankOperationResult.isResult()) {
-      message = String.format("balance of account %d is %d yuan", id, bankOperationResult.getBalance());
+      message = String.format("save success, balance of account %d is %d yuan", id, bankOperationResult.getBalance());
     } else {
-      message = String.format("balance inquiry fail, fail reason: %s", bankOperationResult.getFailReason());
+      message = String.format("save fail, fail reason: %s", bankOperationResult.getFailReason());
     }
     resp.getWriter().write(message);
   }

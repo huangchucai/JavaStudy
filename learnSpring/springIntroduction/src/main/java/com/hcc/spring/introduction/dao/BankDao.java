@@ -5,7 +5,7 @@ import com.hcc.spring.introduction.pojo.AccountPO;
 import com.hcc.spring.introduction.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 
-public class BackDao implements IBankDao {
+public class BankDao implements IBankDao {
   @Override
   public AccountPO selectById(int id) {
     SqlSession session = SqlSessionUtil.getSqlSession();

@@ -1,12 +1,11 @@
 package com.hcc.spring.introduction.service;
 
-import com.hcc.spring.introduction.dao.BackDao;
 import com.hcc.spring.introduction.dao.IBankDao;
 import com.hcc.spring.introduction.pojo.AccountPO;
 import com.hcc.spring.introduction.pojo.BankOperationResult;
 
 public class BankService implements IBankService {
-  private IBankDao bankDao = new BackDao();
+  private IBankDao bankDao;
 
   @Override
   public BankOperationResult balanceInquiry(int id) {

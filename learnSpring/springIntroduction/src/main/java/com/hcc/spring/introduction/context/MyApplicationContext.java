@@ -60,6 +60,7 @@ public class MyApplicationContext {
     Class clazz = obj.getClass();
     // 利用反射获取所有字段
     Field[] fields = clazz.getDeclaredFields();
+
     for (Field field : fields) {
       // 创建字段类型对应的 bean，并为字段赋值
       Class fieldType = field.getType();

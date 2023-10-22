@@ -3,8 +3,13 @@ package com.hcc.spring.introduction.service;
 import com.hcc.spring.introduction.dao.IBankDao;
 import com.hcc.spring.introduction.pojo.AccountPO;
 import com.hcc.spring.introduction.pojo.BankOperationResult;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+@Service
 public class BankService implements IBankService {
+  @Resource
   private IBankDao bankDao;
 
   @Override

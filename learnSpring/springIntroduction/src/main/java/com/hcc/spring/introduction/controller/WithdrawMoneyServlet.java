@@ -6,6 +6,8 @@ import com.hcc.spring.introduction.context.MyApplicationContext;
 import com.hcc.spring.introduction.pojo.BankOperationResult;
 import com.hcc.spring.introduction.service.BankService;
 import com.hcc.spring.introduction.service.IBankService;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +21,8 @@ public class WithdrawMoneyServlet extends HttpServlet {
 
 //  private IBankService bankService = new BankService();
 //  private IBankService bankService =  MyApplicationContext.createBean(IBankService.class);
-  private IBankService bankService =  MyApplicationContext.getBean(IBankService.class);
+//  private IBankService bankService =  MyApplicationContext.getBean(IBankService.class);
+private IBankService bankService = (IBankService) MyApplicationContext.getBean("bankService");
 
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp)

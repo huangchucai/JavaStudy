@@ -4,7 +4,9 @@ import com.hcc.spring.introduction.mapper.AccountPOMapper;
 import com.hcc.spring.introduction.pojo.AccountPO;
 import com.hcc.spring.introduction.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BankDao implements IBankDao {
   @Override
   public AccountPO selectById(int id) {

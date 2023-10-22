@@ -3,6 +3,7 @@ package com.hcc.spring.introduction.controller;
 import com.hcc.spring.introduction.context.MyApplicationContext;
 import com.hcc.spring.introduction.pojo.BankOperationResult;
 import com.hcc.spring.introduction.service.IBankService;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,8 @@ import java.io.IOException;
 @WebServlet(name = "balanceInquiryServlet", urlPatterns = "/balanceInquiry")
 public class BalanceInquiryServlet extends HttpServlet {
 
-    private IBankService bankService = MyApplicationContext.getBean(IBankService.class);
+//    private IBankService bankService = MyApplicationContext.getBean(IBankService.class);
+    private IBankService bankService = (IBankService) MyApplicationContext.getBean("bankService");
 //  private IBankService bankService = new BankService();
 //  private IBankService bankService = MyApplicationContext.createBean(IBankService.class);
 

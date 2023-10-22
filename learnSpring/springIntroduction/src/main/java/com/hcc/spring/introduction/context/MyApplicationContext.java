@@ -1,5 +1,9 @@
 package com.hcc.spring.introduction.context;
 
+import com.hcc.spring.introduction.SpringConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +13,11 @@ public class MyApplicationContext {
 
   private static Map<String, Object> earlyBeanMap = new HashMap<>();
 
+  private static final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+
+  public static Object getBean(String name) {
+    return applicationContext.getBean(name);
+  }
   public static <T> T getBean(Class<T> clazz) {
     // 尝试从 beanMap 中获取 bean
     String className = clazz.getName();

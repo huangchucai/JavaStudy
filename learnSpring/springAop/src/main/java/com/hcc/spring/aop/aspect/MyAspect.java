@@ -4,6 +4,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+/**
+ * 切面（切点+通知点）
+ */
 @Component
 @Aspect
 public class MyAspect {

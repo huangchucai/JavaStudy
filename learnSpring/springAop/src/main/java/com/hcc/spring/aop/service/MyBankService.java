@@ -2,6 +2,7 @@ package com.hcc.spring.aop.service;
 
 
 import com.hcc.spring.aop.annotation.MyAnnotation;
+import com.hcc.spring.aop.annotation.MyLogAnnotation;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,6 +14,7 @@ public class MyBankService {
     return 1000;
   }
 
+  @MyLogAnnotation
   public void saveMoney(int id, int money) {
     System.out.println("saveMoney 被执行");
   }

@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 //@Component
 public class Apple {
-//    public Apple(@Value("雪梨") String name) {
-//        System.out.println("Apple的有参构造函数被调用");
-//        this.name = name;
-//    }
+    public Apple(@Value("雪梨") String name) {
+        System.out.println("Apple的有参构造函数被调用");
+        this.name = name;
+    }
 
     @Override
     public String toString() {

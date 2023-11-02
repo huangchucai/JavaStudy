@@ -4,12 +4,16 @@ import com.hcc.spring.mybatis.mapper.AccountPOMapper;
 import com.hcc.spring.mybatis.pojo.AccountPO;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.IOException;
 
 @Service
 public class AccountService implements IAccountService{
+
+  @Resource
+  private  IAccountService accountService;
   @Resource
   private AccountPOMapper accountPOMapper;
   @Override
@@ -23,6 +27,7 @@ public class AccountService implements IAccountService{
   }
 
   @Override
+  @Transactional
   public boolean transferMoney(int fromAccountId, int toAccountId, int money) {
     if (money <= 0) {
       // 转账金额不能小于等于0
@@ -45,6 +50,10 @@ public class AccountService implements IAccountService{
     fromAccount.setId(fromAccountId);
     fromAccount.setMoney(fromAccountBalance - money);
     int fromCount = accountPOMapper.updateByPrimaryKeySelective(fromAccount);
+
+    int a = 1/0;
+
+
     // 增加转入账户余额
     AccountPO toAccount = new AccountPO();
     toAccount.setId(toAccountId);
@@ -59,8 +68,12 @@ public class AccountService implements IAccountService{
 
   @Override
   public boolean transferMoneyWrapper(int fromAccountId, int toAccountId, int money) {
+    // 必须调用代理的方法，才可以继承事务
 //    return ((IAccountService) AopContext.currentProxy()).transferMoney(fromAccountId, toAccountId, money);
-    return transferMoney(fromAccountId, toAccountId, money);
+    return accountService.transferMoney(fromAccountId, toAccountId, money);
+
+    //    return transferMoney(fromAccountId, toAccountId, money);
+
   }
 
   @Override

@@ -1,10 +1,11 @@
 package com.hcc.spring.mybatis.configuration;
 
-import org.apache.ibatis.session.SqlSessionFactory;
+import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -32,5 +33,17 @@ public class MyBatisConfiguration {
     MapperScannerConfigurer msc = new MapperScannerConfigurer();
     msc.setBasePackage("com.hcc.spring.mybatis.mapper");
     return msc;
+  }
+
+  /**
+   * 配置事务管理器
+   * @param dataSource
+   * @return
+   */
+  @Bean
+  public DataSourceTransactionManager transactionManager(@Autowired DataSource dataSource) {
+    DataSourceTransactionManager manager = new DataSourceTransactionManager();
+    manager.setDataSource(dataSource);
+    return manager;
   }
 }

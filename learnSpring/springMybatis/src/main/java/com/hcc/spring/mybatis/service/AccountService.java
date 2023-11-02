@@ -77,6 +77,7 @@ public class AccountService implements IAccountService{
   }
 
   @Override
+//  @Transactional(rollbackFor = Exception.class)
   public void saveMoney(int accountId, int money) throws IOException {
     Integer balance = balanceInquiry(accountId);
     AccountPO fromAccount = new AccountPO();

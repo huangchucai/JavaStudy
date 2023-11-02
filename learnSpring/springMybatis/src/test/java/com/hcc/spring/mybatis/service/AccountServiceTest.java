@@ -10,6 +10,8 @@ public class AccountServiceTest extends BaseTest {
   @Resource
   private IAccountService accountService;
 
+  @Resource
+  private OuterService outerService;
   @Test
   public void testBalanceInquiry() {
     int id = 1;
@@ -44,5 +46,8 @@ public class AccountServiceTest extends BaseTest {
     accountService.saveMoney(accountId, 100);
   }
 
-
+  @Test
+  public void testPropagation() throws Exception {
+    outerService.outerMethod();
+  }
 }

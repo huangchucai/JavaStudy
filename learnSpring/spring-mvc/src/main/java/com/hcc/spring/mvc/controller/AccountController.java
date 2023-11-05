@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@Controller
+//@Controller
+//@ResponseBody
+
 @RequestMapping("/account")
-@ResponseBody
+@RestController
 public class AccountController {
   @Resource
   private IAccountService accountService;

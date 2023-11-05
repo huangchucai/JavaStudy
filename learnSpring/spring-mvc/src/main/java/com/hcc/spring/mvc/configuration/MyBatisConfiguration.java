@@ -19,7 +19,7 @@ public class MyBatisConfiguration {
   public SqlSessionFactoryBean sqlSessionFactory(@Autowired DataSource dataSource) {
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
     // 设置模型类的别名扫描
-    sqlSessionFactoryBean.setTypeAliasesPackage("com.hcc.spring.mybatis.pojo");
+    sqlSessionFactoryBean.setTypeAliasesPackage("com.hcc.spring.mvc.pojo");
     // 设置数据源
     sqlSessionFactoryBean.setDataSource(dataSource);
     return sqlSessionFactoryBean;
@@ -31,7 +31,7 @@ public class MyBatisConfiguration {
   @Bean
   public MapperScannerConfigurer mapperScannerConfigurer() {
     MapperScannerConfigurer msc = new MapperScannerConfigurer();
-    msc.setBasePackage("com.hcc.spring.mybatis.mapper");
+    msc.setBasePackage("com.hcc.spring.mvc.mapper");
     return msc;
   }
 

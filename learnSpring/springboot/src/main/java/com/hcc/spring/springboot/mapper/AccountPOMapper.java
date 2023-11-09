@@ -1,14 +1,14 @@
-package com.hcc.spring.mvc.mapper;
+package com.hcc.spring.springboot.mapper;
 
-import com.hcc.spring.mvc.pojo.AccountPO;
-import com.hcc.spring.mvc.pojo.AccountPOExample;
+import com.hcc.spring.springboot.pojo.AccountPO;
+import com.hcc.spring.springboot.pojo.AccountPOExample;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.context.annotation.Bean;
 
+@Mapper
 public interface AccountPOMapper {
     long countByExample(AccountPOExample example);
 

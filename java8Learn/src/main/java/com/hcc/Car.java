@@ -1,8 +1,20 @@
 package com.hcc;
 
 public class Car {
+    @Override
+    public String toString() {
+        return "Car{" + "name='" + name + '\'' + ", speed=" + speed + '}';
+    }
+
+    private String name;
+
     public Car(Integer speed) {
         this.speed = speed;
+    }
+
+    public Car(Integer speed, String name) {
+        this.speed = speed;
+        this.name = name;
     }
 
     public Car() {
@@ -24,8 +36,4 @@ public class Car {
         return this.speed;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" + "speed=" + speed + '}';
-    }
 }

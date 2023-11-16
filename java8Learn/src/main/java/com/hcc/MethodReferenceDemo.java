@@ -2,10 +2,9 @@ package com.hcc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.IntConsumer;
-import java.util.function.Supplier;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +43,20 @@ public class MethodReferenceDemo {
         Function<Integer, Car> functionCar = Car::new;
         Car car2 = functionCar.apply(100);
         System.out.println(car2);
+
+        /**
+         * 多个参数的引用
+         * 1. 多个参数的构造函数
+         * 2. hashMap的赋值
+         */
+        BiFunction<Integer,String, Car> biFunctionCar = Car::new;
+        Car car3 = biFunctionCar.apply(100, "hcc");
+        System.out.println(car3);
+
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        BiConsumer<String ,Integer> mapConsumer = hashMap::put;
+        mapConsumer.accept("hcc", 100);
+        System.out.println(hashMap);
 
     }
 }

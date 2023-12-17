@@ -14,7 +14,7 @@ public class ObtainClassInstanceDemo {
 
         // 方法2： 使用对象的getClass()方法
         String s = "hello wordl";
-        Animal animal = new Animal();
+        Animal animal = new Animal("hcc");
         Class<? extends String> stringClazz2 = s.getClass();
         Class animalClazz2 = animal.getClass();
         System.out.println("String clazz 2: " + stringClazz2);

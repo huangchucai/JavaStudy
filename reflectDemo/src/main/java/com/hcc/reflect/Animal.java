@@ -1,7 +1,7 @@
 package com.hcc.reflect;
 
 public class Animal {
-    String type;
+    public String type;
 
     public Animal() {
     }

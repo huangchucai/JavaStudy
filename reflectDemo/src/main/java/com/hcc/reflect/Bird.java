@@ -3,7 +3,7 @@ package com.hcc.reflect;
 @Markable("main-bird")
 public class Bird<T> extends Animal implements Flying, Comparable<Bird> {
     @Markable("age")
-    public int age;
+    private int age;
     private int size;
 
     public Bird() {
@@ -23,7 +23,9 @@ public class Bird<T> extends Animal implements Flying, Comparable<Bird> {
         return true;
     }
 
-    public void walk() {
+
+    @Markable("walk")
+    public static void walk() {
         System.out.println("The bird is walking");
     }
 
